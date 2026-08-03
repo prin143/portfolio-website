@@ -1,0 +1,692 @@
+
+:root {
+  --color-bg: #0d0d0d;          /* page background */
+  --color-card: #171717;        /* card background */
+  --color-card-light: #1e1e1e;  /* slightly lighter card / input bg */
+  --color-border: #2a2a2a;      /* subtle borders */
+  --color-text: #ffffff;        /* main text */
+  --color-text-muted: #a3a3a3;  /* secondary text */
+  --color-gold: #d4af37;        /* accent color */
+  --color-gold-soft: rgba(212, 175, 55, 0.12); /* soft gold background */
+
+  --font-main: 'Poppins', sans-serif;
+
+  --container-width: 1200px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --transition-fast: 0.25s ease;
+  --transition-med: 0.4s ease;
+}
+
+/* --------------------------------------------------
+   2. RESET & BASE STYLES
+   -------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* smooth scroll for nav anchor links */
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Reusable centered container */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Reusable "eyebrow" tag styling */
+.tag {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--color-gold);
+  background: var(--color-gold-soft);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+/* Section heading block used across sections */
+.section-heading {
+  max-width: 620px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.section-heading--left {
+  margin: 0 0 40px;
+  text-align: left;
+}
+
+.section-heading h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.section-heading p {
+  color: var(--color-text-muted);
+  font-size: 16px;
+}
+
+/* Generic card look, reused by service / project / form cards */
+.card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+/* Section vertical spacing */
+section {
+  padding: 110px 0;
+}
+
+/* --------------------------------------------------
+   3. BUTTONS
+   -------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition-fast),
+              box-shadow var(--transition-fast),
+              background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              color var(--transition-fast);
+}
+
+/* Solid gold button */
+.btn--gold {
+  background-color: var(--color-gold);
+  color: #0d0d0d;
+}
+
+.btn--gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(212, 175, 55, 0.35);
+}
+
+/* Outlined / secondary button */
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  transform: translateY(-3px);
+}
+
+.btn--small {
+  padding: 10px 22px;
+  font-size: 14px;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/* --------------------------------------------------
+   4. NAVBAR (sticky + glassmorphism)
+   -------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 13, 13, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.logo__accent {
+  color: var(--color-gold);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+/* Gold underline animation on hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-gold);
+  transition: width var(--transition-fast);
+}
+
+.nav-links a:hover {
+  color: var(--color-text);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------
+   5. HERO SECTION
+   -------------------------------------------------- */
+.hero {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr; /* text side slightly wider */
+  align-items: center;
+  gap: 60px;
+}
+
+.hero__heading {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+}
+
+.hero__desc {
+  font-size: 17px;
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin-bottom: 36px;
+}
+
+.hero__buttons {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hero__image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-med);
+}
+
+/* Slight zoom on hover — subtle premium touch */
+.hero__image:hover img {
+  transform: scale(1.04);
+}
+
+/* Soft ambient gold glow behind the hero image */
+.hero__image-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 120px rgba(212, 175, 55, 0.08);
+}
+
+/* --------------------------------------------------
+   6. SERVICES SECTION
+   -------------------------------------------------- */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+.service-card {
+  padding: 36px 28px;
+  transition: transform var(--transition-med),
+              box-shadow var(--transition-med),
+              border-color var(--transition-med);
+}
+
+.service-card__icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--color-gold-soft);
+  color: var(--color-gold);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.service-card h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 14.5px;
+  color: var(--color-text-muted);
+}
+
+/* Card hover: lift + gold glow shadow + gold border */
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------
+   7. ABOUT SECTION
+   -------------------------------------------------- */
+.about__inner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.about__image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.about__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-med);
+}
+
+.about__image:hover img {
+  transform: scale(1.05);
+}
+
+.about__content h2 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+
+.about__content > p {
+  color: var(--color-text-muted);
+  margin-bottom: 28px;
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.feature-list__check {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-gold-soft);
+  color: var(--color-gold);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------
+   8. PROJECTS SECTION
+   -------------------------------------------------- */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.project-card {
+  overflow: hidden;
+  transition: transform var(--transition-med),
+              box-shadow var(--transition-med);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+.project-card__image {
+  overflow: hidden;
+}
+
+.project-card__image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform var(--transition-med);
+}
+
+.project-card:hover .project-card__image img {
+  transform: scale(1.08);
+}
+
+.project-card__body {
+  padding: 26px;
+}
+
+.project-card__body h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.project-card__body p {
+  font-size: 14.5px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+/* --------------------------------------------------
+   9. CONTACT SECTION
+   -------------------------------------------------- */
+.contact-form {
+  padding: 40px;
+  max-width: 640px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--color-text-muted);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background-color: var(--color-card-light);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--color-text);
+  font-family: var(--font-main);
+  font-size: 14.5px;
+  resize: vertical;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #6b6b6b;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+/* --------------------------------------------------
+   10. FOOTER
+   -------------------------------------------------- */
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding-top: 60px;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer__brand p {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin-top: 12px;
+  max-width: 260px;
+}
+
+.footer__links {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.footer__links a {
+  color: var(--color-text-muted);
+  font-size: 14.5px;
+  transition: color var(--transition-fast);
+}
+
+.footer__links a:hover {
+  color: var(--color-gold);
+}
+
+.footer__social {
+  display: flex;
+  gap: 14px;
+}
+
+.footer__social a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 15px;
+  transition: border-color var(--transition-fast),
+              color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.footer__social a:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  transform: translateY(-3px);
+}
+
+.footer__bottom {
+  border-top: 1px solid var(--color-border);
+  padding: 22px 0;
+  text-align: center;
+}
+
+.footer__bottom p {
+  color: var(--color-text-muted);
+  font-size: 13.5px;
+}
+
+/* --------------------------------------------------
+   11. RESPONSIVE — TABLET (≤ 1024px)
+   -------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero__heading {
+    font-size: 44px;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr); /* 4 cards -> 2 columns */
+  }
+
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr); /* 3 cards -> 2 columns */
+  }
+
+  .about__inner {
+    grid-template-columns: 1fr; /* stack image above content */
+  }
+
+  .about__image {
+    order: -1;
+  }
+}
+
+/* --------------------------------------------------
+   12. RESPONSIVE — MOBILE (≤ 768px)
+   -------------------------------------------------- */
+@media (max-width: 768px) {
+  section {
+    padding: 70px 0;
+  }
+
+  /* Hide the inline nav links, keep logo + CTA button.
+     (No JS allowed, so a full hamburger menu isn't functional —
+     we simplify gracefully for small screens instead.) */
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 60px;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr; /* stack text above image */
+  }
+
+  .hero__image {
+    order: -1; /* show image first on mobile */
+  }
+
+  .hero__heading {
+    font-size: 34px;
+  }
+
+  .hero__desc {
+    max-width: 100%;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+  }
+
+  .services__grid {
+    grid-template-columns: 1fr; /* single column */
+  }
+
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 26px;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+  }
+}
+
+/* --------------------------------------------------
+   13. RESPONSIVE — SMALL MOBILE (≤ 480px)
+   -------------------------------------------------- */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero__heading {
+    font-size: 28px;
+  }
+
+  .hero__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
