@@ -1,13 +1,13 @@
 
 :root {
-  --color-bg: #0d0d0d;          /* page background */
-  --color-card: #171717;        /* card background */
-  --color-card-light: #1e1e1e;  /* slightly lighter card / input bg */
-  --color-border: #2a2a2a;      /* subtle borders */
-  --color-text: #ffffff;        /* main text */
-  --color-text-muted: #a3a3a3;  /* secondary text */
-  --color-gold: #d4af37;        /* accent color */
-  --color-gold-soft: rgba(212, 175, 55, 0.12); /* soft gold background */
+  --color-bg: #0d0d0d;          
+  --color-card: #171717;        
+  --color-card-light: #1e1e1e;  
+  --color-border: #2a2a2a;      
+  --color-text: #ffffff;        
+  --color-text-muted: #a3a3a3;  
+  --color-gold: #d4af37;        
+  --color-gold-soft: rgba(212, 175, 55, 0.12); 
 
   --font-main: 'Poppins', sans-serif;
 
@@ -19,9 +19,7 @@
   --transition-med: 0.4s ease;
 }
 
-/* --------------------------------------------------
-   2. RESET & BASE STYLES
-   -------------------------------------------------- */
+
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +27,7 @@
 }
 
 html {
-  scroll-behavior: smooth; /* smooth scroll for nav anchor links */
+  scroll-behavior: smooth; 
 }
 
 body {
@@ -54,7 +52,7 @@ ul {
   list-style: none;
 }
 
-/* Reusable centered container */
+
 .container {
   width: 100%;
   max-width: var(--container-width);
@@ -62,7 +60,7 @@ ul {
   padding: 0 32px;
 }
 
-/* Reusable "eyebrow" tag styling */
+
 .tag {
   display: inline-block;
   font-size: 13px;
@@ -80,7 +78,7 @@ ul {
   color: var(--color-gold);
 }
 
-/* Section heading block used across sections */
+
 .section-heading {
   max-width: 620px;
   margin: 0 auto 60px;
@@ -104,21 +102,19 @@ ul {
   font-size: 16px;
 }
 
-/* Generic card look, reused by service / project / form cards */
+
 .card {
   background-color: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
 }
 
-/* Section vertical spacing */
+
 section {
   padding: 110px 0;
 }
 
-/* --------------------------------------------------
-   3. BUTTONS
-   -------------------------------------------------- */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -138,7 +134,7 @@ section {
               color var(--transition-fast);
 }
 
-/* Solid gold button */
+
 .btn--gold {
   background-color: var(--color-gold);
   color: #0d0d0d;
@@ -149,7 +145,7 @@ section {
   box-shadow: 0 12px 28px rgba(212, 175, 55, 0.35);
 }
 
-/* Outlined / secondary button */
+
 .btn--outline {
   background-color: transparent;
   color: var(--color-text);
@@ -171,9 +167,7 @@ section {
   width: 100%;
 }
 
-/* --------------------------------------------------
-   4. NAVBAR (sticky + glassmorphism)
-   -------------------------------------------------- */
+
 .navbar {
   position: sticky;
   top: 0;
@@ -216,7 +210,7 @@ section {
   transition: color var(--transition-fast);
 }
 
-/* Gold underline animation on hover */
+
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -236,9 +230,7 @@ section {
   width: 100%;
 }
 
-/* --------------------------------------------------
-   5. HERO SECTION
-   -------------------------------------------------- */
+
 .hero {
   padding-top: 120px;
   padding-bottom: 120px;
@@ -246,7 +238,7 @@ section {
 
 .hero__inner {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr; /* text side slightly wider */
+  grid-template-columns: 1.05fr 0.95fr; 
   align-items: center;
   gap: 60px;
 }
@@ -286,12 +278,12 @@ section {
   transition: transform var(--transition-med);
 }
 
-/* Slight zoom on hover — subtle premium touch */
+
 .hero__image:hover img {
   transform: scale(1.04);
 }
 
-/* Soft ambient gold glow behind the hero image */
+
 .hero__image-glow {
   position: absolute;
   inset: 0;
@@ -299,9 +291,7 @@ section {
   box-shadow: inset 0 0 120px rgba(212, 175, 55, 0.08);
 }
 
-/* --------------------------------------------------
-   6. SERVICES SECTION
-   -------------------------------------------------- */
+
 .services__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -340,16 +330,14 @@ section {
   color: var(--color-text-muted);
 }
 
-/* Card hover: lift + gold glow shadow + gold border */
+
 .service-card:hover {
   transform: translateY(-8px);
   border-color: rgba(212, 175, 55, 0.4);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* --------------------------------------------------
-   7. ABOUT SECTION
-   -------------------------------------------------- */
+
 .about__inner {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -414,9 +402,7 @@ section {
   font-weight: 700;
 }
 
-/* --------------------------------------------------
-   8. PROJECTS SECTION
-   -------------------------------------------------- */
+
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -465,9 +451,7 @@ section {
   margin-bottom: 20px;
 }
 
-/* --------------------------------------------------
-   9. CONTACT SECTION
-   -------------------------------------------------- */
+
 .contact-form {
   padding: 40px;
   max-width: 640px;
@@ -511,9 +495,7 @@ section {
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
 }
 
-/* --------------------------------------------------
-   10. FOOTER
-   -------------------------------------------------- */
+
 .footer {
   border-top: 1px solid var(--color-border);
   padding-top: 60px;
@@ -588,24 +570,22 @@ section {
   font-size: 13.5px;
 }
 
-/* --------------------------------------------------
-   11. RESPONSIVE — TABLET (≤ 1024px)
-   -------------------------------------------------- */
+
 @media (max-width: 1024px) {
   .hero__heading {
     font-size: 44px;
   }
 
   .services__grid {
-    grid-template-columns: repeat(2, 1fr); /* 4 cards -> 2 columns */
+    grid-template-columns: repeat(2, 1fr); 
   }
 
   .projects__grid {
-    grid-template-columns: repeat(2, 1fr); /* 3 cards -> 2 columns */
+    grid-template-columns: repeat(2, 1fr); 
   }
 
   .about__inner {
-    grid-template-columns: 1fr; /* stack image above content */
+    grid-template-columns: 1fr; 
   }
 
   .about__image {
@@ -613,17 +593,13 @@ section {
   }
 }
 
-/* --------------------------------------------------
-   12. RESPONSIVE — MOBILE (≤ 768px)
-   -------------------------------------------------- */
+
 @media (max-width: 768px) {
   section {
     padding: 70px 0;
   }
 
-  /* Hide the inline nav links, keep logo + CTA button.
-     (No JS allowed, so a full hamburger menu isn't functional —
-     we simplify gracefully for small screens instead.) */
+  
   .nav-links {
     display: none;
   }
@@ -633,11 +609,11 @@ section {
   }
 
   .hero__inner {
-    grid-template-columns: 1fr; /* stack text above image */
+    grid-template-columns: 1fr; 
   }
 
   .hero__image {
-    order: -1; /* show image first on mobile */
+    order: -1; 
   }
 
   .hero__heading {
@@ -653,7 +629,7 @@ section {
   }
 
   .services__grid {
-    grid-template-columns: 1fr; /* single column */
+    grid-template-columns: 1fr; 
   }
 
   .projects__grid {
@@ -669,9 +645,7 @@ section {
   }
 }
 
-/* --------------------------------------------------
-   13. RESPONSIVE — SMALL MOBILE (≤ 480px)
-   -------------------------------------------------- */
+
 @media (max-width: 480px) {
   .container {
     padding: 0 20px;
@@ -690,3 +664,4 @@ section {
     width: 100%;
   }
 }
+

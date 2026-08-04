@@ -5,7 +5,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     let email = document.getElementById("email").value;
     let message = document.getElementById("message").value;
 
-    let phone = "918292388768"; 
+    let phone = "918292388768";
 
     let text = `Hello Prince,
 Name: ${name}
